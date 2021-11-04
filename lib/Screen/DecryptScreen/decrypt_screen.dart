@@ -46,10 +46,14 @@ class DecryptScreen extends StatelessWidget {
                 title: Text('From the camera'),
                 onTap: () => {
                   if (num == 0)
-                    {PRO.pickImage('plain', ImageSource.camera)},
-                  if (num == 1) {PRO.pickImage('key', ImageSource.camera)}
+                    {Navigator.pop(context),PRO.pickImage('plain', ImageSource.camera)},
+                  if (num == 1) {Navigator.pop(context),PRO.pickImage('key', ImageSource.camera)}
                 },
               ),
+              Container(
+                    height: 1,
+                    color: BlackColor.withOpacity(0.5),
+                  ),
               ListTile(
                 leading: Icon(
                   Icons.image,
@@ -58,15 +62,15 @@ class DecryptScreen extends StatelessWidget {
                 title: Text('From the gallery'),
                 onTap: () => {
                   if (num == 0)
-                    {PRO.pickImage('plain', ImageSource.gallery)},
+                    {Navigator.pop(context),PRO.pickImage('plain', ImageSource.gallery)},
                   if (num == 1)
                     {
-                      PRO.pickImage('key', ImageSource.gallery),
+                     Navigator.pop(context),PRO.pickImage('key', ImageSource.gallery),
                     }
                 },
               ),
               SizedBox(
-                height: 30,
+                height: 25
               ),
             ],
           ),

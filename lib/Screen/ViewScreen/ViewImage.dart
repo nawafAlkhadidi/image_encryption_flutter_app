@@ -13,7 +13,6 @@ class ViewImage extends StatelessWidget {
   Widget build(BuildContext context) {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
 
-    final img = Image.file(File(PRO.getTempPath));
 
     saveImage() async {
       await GallerySaver.saveImage(PRO.getTempPath); // save in Gallery
@@ -32,12 +31,12 @@ class ViewImage extends StatelessWidget {
       await Navigator.pushReplacement(context, route);
     }
 
-    closeScreen() async {
-      await File(PRO.getTempPath).delete(); // delete temp
-      PRO.clear(); // clear proivder
-      Route route = MaterialPageRoute(builder: (context) => HomePage());
-      await Navigator.pushReplacement(context, route);
-    }
+    // closeScreen() async {
+    //   await File(PRO.getTempPath).delete(); // delete temp
+    //   PRO.clear(); // clear proivder
+    //   Route route = MaterialPageRoute(builder: (context) => HomePage());
+    //   await Navigator.pushReplacement(context, route);
+    // }
 
     return MaterialApp(
       theme: ThemeData(fontFamily: 'Cairo'),

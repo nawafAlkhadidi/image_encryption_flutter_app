@@ -13,9 +13,9 @@ class EncryptScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
 
-    Future<void> run1() async {
-      await Navigator.of(context).pushNamed('/imageView');
-    }
+    // Future<void> run1() async {
+    //   await Navigator.of(context).pushNamed('/imageView');
+    // }
 
     void BottomSheet(int num) => showModalBottomSheet(
       isScrollControlled: true,
@@ -41,7 +41,7 @@ class EncryptScreen extends StatelessWidget {
                     },
                   ),
                   Container(
-                    height: 1,
+                    height: 2,
                     color: BlackColor.withOpacity(0.5),
                   ),
                   ListTile(
@@ -58,7 +58,7 @@ class EncryptScreen extends StatelessWidget {
                     },
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 25,
                   ),
                 ],
               ),
