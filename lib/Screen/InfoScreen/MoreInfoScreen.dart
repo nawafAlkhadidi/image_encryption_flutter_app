@@ -6,6 +6,7 @@ class MoreinfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        theme: ThemeData(fontFamily: 'Cairo'),
         debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -13,7 +14,7 @@ class MoreinfoScreen extends StatelessWidget {
             'More Information',
             style: TextStyle(
               fontFamily: 'Cairo',
-              color:  Colors.black,
+              color:  BlackColor,
               fontSize: 25,
             ),
           ),
@@ -23,7 +24,7 @@ class MoreinfoScreen extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_left,
-              color: Colors.black,
+              color: BlackColor,
               size: 26,
             ),
             onPressed: () {
@@ -54,19 +55,19 @@ class MoreinfoScreen extends StatelessWidget {
                               ' because we use a very complicated methods and logarithms to process the encryption or'
                               ' decryption. Doing so, makes it impossible for anyone who doesn’t have the key for '
                               'encryption and decryption to view the image. ',
-                            style: TextStyle(fontSize: 18, ),textAlign: TextAlign.justify),
+                            style: TextStyle(fontSize: 18,color: BlackColor, ),textAlign: TextAlign.justify),
                           SizedBox(height: 30,),
                           Text('   This application has been made to meet the requirements for high security process of'
                               ' encryption and decryption to help people who want to send sensitive information '
                               'without any leaking of any part of this information. No one without having the key'
                               ' can view the content of the image even the developers of the application. We tried'
                               ' to make as simple as possible to help you doing your task without complications of usage.  ',
-                              style: TextStyle(fontSize: 18, ),textAlign: TextAlign.justify),
+                              style: TextStyle(fontSize: 18,color: BlackColor, ),textAlign: TextAlign.justify),
                           SizedBox(height: 30,),
                           Text('   This app has been made by Nawaf Alkhadidi and Yasser Bamgabel for final graduation project.'
                               ' Our goal is to continue developing this application to improve it by adding more features'
                               ' to it that could help people to protect their information from being stolen.',
-                              style: TextStyle(fontSize: 18, ),textAlign: TextAlign.justify),
+                              style: TextStyle(fontSize: 18,color: BlackColor, ),textAlign: TextAlign.justify),
 
                         ],
                       ),

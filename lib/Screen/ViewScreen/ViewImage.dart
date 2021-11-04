@@ -25,7 +25,7 @@ class ViewImage extends StatelessWidget {
         title: 'Saved',
         subtitle: 'The image has been saved successfully',
         configuration: IconConfiguration(icon: Icons.done),
-        backgroundColor: Colors.white,
+        backgroundColor: WhiteColor,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       );
       Route route = MaterialPageRoute(builder: (context) => HomePage());
@@ -40,14 +40,14 @@ class ViewImage extends StatelessWidget {
     }
 
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
             'B9MAH ENCRYPTION',
             style: TextStyle(
-              fontFamily: 'Cairo',
-              color: Colors.black,
+              color: BlackColor,
               fontSize: 24,
             ),
           ),
@@ -57,7 +57,7 @@ class ViewImage extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_left,
-              color: Colors.black,
+              color: BlackColor,
               size: 26,
             ),
             onPressed: () {
@@ -87,8 +87,7 @@ class ViewImage extends StatelessWidget {
                     'Encrypted Image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Cairo',
+                      color: BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -99,11 +98,11 @@ class ViewImage extends StatelessWidget {
                   mainButton(
                       text: 'Save',
                       textSize: 25,
-                      textColors: Colors.white,
+                      textColors: WhiteColor,
                       icon: Icon(
                         Icons.add,
                         size: 42,
-                        color: Colors.white,
+                        color: WhiteColor,
                       ),
                       backGround: Colors.lightBlue,
                       fun: () {

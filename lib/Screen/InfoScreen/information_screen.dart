@@ -5,8 +5,7 @@ import 'package:image_encryption/Screen/InfoScreen/AckScreen.dart';
 import 'package:image_encryption/Screen/InfoScreen/MoreInfoScreen.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/components.dart';
-
-import '../../Sharad/GetEmail.dart';
+import 'package:image_encryption/Sharad/GetEmail.dart';
 
 class InformationScreen extends StatelessWidget {
   @override
@@ -19,17 +18,15 @@ class InformationScreen extends StatelessWidget {
       );
     }
 
-
-
     return MaterialApp(
+        theme: ThemeData(fontFamily: 'Cairo'),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
               title: Text(
                 'About US',
                 style: TextStyle(
-                  fontFamily: 'Cairo',
-                  color: Colors.black,
+                  color: BlackColor,
                   fontSize: 25,
                 ),
               ),
@@ -39,7 +36,7 @@ class InformationScreen extends StatelessWidget {
               leading: IconButton(
                 icon: Icon(
                   Icons.keyboard_arrow_left,
-                  color: Colors.black,
+                  color: BlackColor,
                   size: 26,
                 ),
                 onPressed: () {
@@ -73,28 +70,28 @@ class InformationScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 30),
                       ///MoreInfo Button 1
-                      infoBoutton(
+                      infoButton(
                         Title: "More information",
                         SubTitle:"More information about this app" ,
-                        icon: Icon(Icons.info , size: 38 , color: Colors.black,),
+                        icon: Icon(Icons.info , size: 38 , color: BlackColor,),
                         Fun: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) => MoreinfoScreen()));
                         },
                       ),
                       ///Contact Button 2
-                      infoBoutton(
+                      infoButton(
                         Title: "Contact the developer",
                         SubTitle:"Contact me directly through email" ,
-                        icon: Icon(Icons.email , size: 38 , color: Colors.black,),
+                        icon: Icon(Icons.email , size: 38 , color: BlackColor,),
                         Fun: (){
                           email();
                         },
                       ),
                       ///Acknowledge Button 3
-                      infoBoutton(
+                      infoButton(
                         Title: "Acknowledgements",
-                        SubTitle:"thanks to services used in this app" ,
-                        icon: Icon(Icons.thumb_up , size: 38 , color: Colors.black,),
+                        SubTitle:"Thanks to services used in this app" ,
+                        icon: Icon(Icons.thumb_up , size: 38 , color: BlackColor,),
                         Fun: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) => AckScreen()));
                         },

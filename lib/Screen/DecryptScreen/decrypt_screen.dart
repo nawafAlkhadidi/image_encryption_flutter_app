@@ -41,7 +41,7 @@ class DecryptScreen extends StatelessWidget {
               ListTile(
                 leading: Icon(
                   Icons.camera_alt_outlined,
-                  color: Colors.black,
+                  color: BlackColor,
                 ),
                 title: Text('From the camera'),
                 onTap: () => {
@@ -53,7 +53,7 @@ class DecryptScreen extends StatelessWidget {
               ListTile(
                 leading: Icon(
                   Icons.image,
-                  color: Colors.black,
+                  color: BlackColor,
                 ),
                 title: Text('From the gallery'),
                 onTap: () => {
@@ -73,14 +73,14 @@ class DecryptScreen extends StatelessWidget {
         ));
 
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
             'B9MAH DECRYPT',
             style: TextStyle(
-              fontFamily: 'Cairo',
-              color: Colors.black,
+              color: BlackColor,
               fontSize: 24,
             ),
           ),
@@ -90,7 +90,7 @@ class DecryptScreen extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_left,
-              color: Colors.black,
+              color:  BlackColor,
               size: 26,
             ),
             onPressed: () {
@@ -120,8 +120,7 @@ class DecryptScreen extends StatelessWidget {
                     'Encrypted Image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Cairo',
+                      color:  BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -147,7 +146,7 @@ class DecryptScreen extends StatelessWidget {
                                 : Icon(
                               Icons.camera_alt_outlined,
                               size: 50,
-                              color: Colors.black45,
+                              color:  BlackColor,
                             ),
                           ),
                         ],
@@ -159,8 +158,7 @@ class DecryptScreen extends StatelessWidget {
                     'Key image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Cairo',
+                      color:  BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -187,7 +185,7 @@ class DecryptScreen extends StatelessWidget {
                                 : Icon(
                               Icons.camera_alt_outlined,
                               size: 50,
-                              color: Colors.black45,
+                              color:  BlackColor,
                             ),
                           ),
                         ],

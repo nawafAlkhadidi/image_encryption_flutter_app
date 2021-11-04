@@ -6,14 +6,14 @@ class AckScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        theme: ThemeData(fontFamily: 'Cairo'),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           appBar: AppBar(
             title: Text(
               'Acknowledgements',
               style: TextStyle(
-                fontFamily: 'Cairo',
-                color: Colors.black,
+                color: BlackColor,
                 fontSize: 25,
               ),
             ),
@@ -23,7 +23,7 @@ class AckScreen extends StatelessWidget {
             leading: IconButton(
               icon: Icon(
                 Icons.keyboard_arrow_left,
-                color: Colors.black,
+                color: BlackColor,
                 size: 26,
               ),
               onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_encryption/Sharad/Colors.dart';
 
 Widget mainButton({
   @required Function fun,
@@ -9,8 +10,7 @@ Widget mainButton({
   Color textColors = Colors.white,
 
 //  = Colors(0xff9274EB);
-}) =>
-    Padding(
+}) => Padding(
       padding: const EdgeInsets.symmetric(vertical: 35),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(27),
@@ -27,7 +27,7 @@ Widget mainButton({
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.all(16.0),
                 primary: textColors,
-                textStyle: TextStyle(fontSize: textSize),
+                textStyle: TextStyle(fontSize: textSize,),
               ),
               onPressed: fun,
               child: Padding(
@@ -44,14 +44,13 @@ Widget mainButton({
       ),
     );
 
-Widget infoBoutton({
+Widget infoButton({
   @required Function Fun,
   @required String Title,
   @required String SubTitle,
   @required Icon icon ,
 
-}) =>
-    GestureDetector(
+}) => GestureDetector(
       onTap: Fun,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -69,7 +68,7 @@ Widget infoBoutton({
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(14.0),
+            padding: const EdgeInsets.all(10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -77,15 +76,24 @@ Widget infoBoutton({
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      Title,
-                      style: TextStyle(
-                        fontSize: 20,
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 3),
+                      child: Text(
+                        Title,
+                        style: TextStyle(
+                          fontSize: 19,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
-                    Text(
-                      SubTitle,
-                      style: TextStyle(fontSize: 13),
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 3),
+                      child: Text(
+                        SubTitle,
+                        style: TextStyle(fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                        color: BlackColor.withOpacity(0.6,),),
+                      ),
                     ),
                   ],
                 ),

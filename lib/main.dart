@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
         providers: providersList,
         child: MaterialApp(
+            theme: ThemeData(fontFamily: 'Cairo'),
             debugShowCheckedModeBanner: false,
             initialRoute:
                 initScreen == 0 || initScreen == null ? "/first" : "/",

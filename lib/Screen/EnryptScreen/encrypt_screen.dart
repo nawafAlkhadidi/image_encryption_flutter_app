@@ -30,46 +30,49 @@ class EncryptScreen extends StatelessWidget {
                   ListTile(
                     leading: Icon(
                       Icons.camera_alt_outlined,
-                      color: Colors.black,
+                      color:  BlackColor,
                     ),
-                    title: Text('From the camera'),
+                    title: Text('From the camera', style: TextStyle(
+                      color: BlackColor,)),
                     onTap: () => {
                       if (num == 0)
-                        {PRO.pickImage('plain', ImageSource.camera)},
-                      if (num == 1) {PRO.pickImage('key', ImageSource.camera)}
+                        {Navigator.pop(context),PRO.pickImage('plain', ImageSource.camera)},
+                      if (num == 1) {Navigator.pop(context),PRO.pickImage('key', ImageSource.camera)}
                     },
+                  ),
+                  Container(
+                    height: 1,
+                    color: BlackColor.withOpacity(0.5),
                   ),
                   ListTile(
                     leading: Icon(
                       Icons.image,
-                      color: Colors.black,
+                      color:  BlackColor,
                     ),
                     title: Text('From the gallery'),
                     onTap: () => {
                       if (num == 0)
-                        {PRO.pickImage('plain', ImageSource.gallery)},
+                        {Navigator.pop(context),PRO.pickImage('plain', ImageSource.gallery)},
                       if (num == 1)
-                        {
-                          PRO.pickImage('key', ImageSource.gallery),
-                        }
+                        {Navigator.pop(context),PRO.pickImage('key', ImageSource.gallery)}
                     },
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 15,
                   ),
                 ],
               ),
             ));
 
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
             'B9MAH ENCRYPTION',
             style: TextStyle(
-              fontFamily: 'Cairo',
-              color: Colors.black,
+              color: BlackColor,
               fontSize: 24,
             ),
           ),
@@ -79,7 +82,7 @@ class EncryptScreen extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_left,
-              color: Colors.black,
+              color:  BlackColor,
               size: 26,
             ),
             onPressed: () {
@@ -107,8 +110,7 @@ class EncryptScreen extends StatelessWidget {
                     'Plain image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Cairo',
+                      color: BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -131,7 +133,7 @@ class EncryptScreen extends StatelessWidget {
                                 : Icon(
                                     Icons.camera_alt_outlined,
                                     size: 50,
-                                    color: Colors.black45,
+                                    color: BlackColor,
                                   ),
                           ),
                         ],
@@ -143,8 +145,7 @@ class EncryptScreen extends StatelessWidget {
                     'Key image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'Cairo',
+                      color: BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -165,7 +166,7 @@ class EncryptScreen extends StatelessWidget {
                               : Icon(
                                   Icons.camera_alt_outlined,
                                   size: 50,
-                                  color: Colors.black45,
+                                  color: BlackColor,
                                 ),
                         ),
                       ],
@@ -182,7 +183,7 @@ class EncryptScreen extends StatelessWidget {
                           text: 'Encrypt',
                           icon: Icon(
                             Icons.lock,
-                            color: Colors.white,
+                            color: WhiteColor,
                             size: 36.0,
                           ),
                           fun: () {
@@ -198,7 +199,7 @@ class EncryptScreen extends StatelessWidget {
                                         'Image key must be larger than Image plain',
                                     configuration:
                                         IconConfiguration(icon: Icons.error),
-                                    backgroundColor: Colors.white,
+                                    backgroundColor: WhiteColor,
                                     padding: const EdgeInsets.symmetric(
                                         vertical: 10, horizontal: 10),
                                     dismissOnBackgroundTap: true,

@@ -28,11 +28,10 @@ class HomePage extends StatelessWidget {
     }
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Cairo'),
         home: Scaffold(
-          // backgroundColor: Color(0xffA9DBEE),
           appBar: homeAppBar(),
           body: Container(
-            // width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             decoration:  const BoxDecoration(
                 gradient: LinearGradient(
@@ -59,7 +58,7 @@ class HomePage extends StatelessWidget {
                     backGround: EncryptButtonColor,
                       text: 'Encrypt',
                       textSize: 27.5,
-                      icon: Icon(Icons.lock, color: Colors.white, size: 36.0,),
+                      icon: Icon(Icons.lock, color: WhiteColor, size: 36.0,),
                     fun: (){encrypt();},
                   ),
                   mainButton(
@@ -69,7 +68,7 @@ class HomePage extends StatelessWidget {
                       textSize: 27.5,
                       icon: Icon(
                         Icons.lock_open,
-                        color: Colors.white,
+                        color: WhiteColor,
                         size: 36.0,
                       ),),
                   mainButton(
@@ -77,7 +76,7 @@ class HomePage extends StatelessWidget {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => InformationScreen(),),);},
                       text: 'About us',
                       textSize: 26.5,
-                      icon: Icon(Icons.group, color: Colors.white, size: 36.0,
+                      icon: Icon(Icons.group, color: WhiteColor, size: 36.0,
                   ), backGround: AboutButtonColor.withOpacity(1)),
                 ],
               ),
@@ -91,8 +90,7 @@ class HomePage extends StatelessWidget {
       title: Text(
         'B9MAH ENCRYPTION',
         style: TextStyle(
-          fontFamily: 'Cairo',
-          color: Colors.black,
+          color: BlackColor,
           fontSize: 24,
         ),
       ),
