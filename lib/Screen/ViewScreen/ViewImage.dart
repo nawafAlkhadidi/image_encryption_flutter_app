@@ -15,9 +15,6 @@ class ViewImage extends StatelessWidget {
 
 
     saveImage() async {
-      await GallerySaver.saveImage(PRO.getTempPath); // save in Gallery
-      await File(PRO.getTempPath).delete(); // delete temp
-      PRO.clear(); // clear provider
       StatusAlert.show(
         context,
         duration: Duration(seconds: 4),
@@ -27,6 +24,9 @@ class ViewImage extends StatelessWidget {
         backgroundColor: WhiteColor,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       );
+      await GallerySaver.saveImage(PRO.getTempPath); // save in Gallery
+      await File(PRO.getTempPath).delete(); // delete temp
+      PRO.clear(); // clear provider
       Route route = MaterialPageRoute(builder: (context) => HomePage());
       await Navigator.pushReplacement(context, route);
     }
@@ -39,7 +39,6 @@ class ViewImage extends StatelessWidget {
     // }
 
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -80,7 +79,7 @@ class ViewImage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 10,
+                    height: 30,
                   ),
                   Text(
                     'Encrypted Image',
@@ -92,8 +91,8 @@ class ViewImage extends StatelessWidget {
                   ),
                   Container(
                       width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.5,
-                      child: Image.file(File(PRO.getTempPath))),
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      child: Image.file(File(PRO.getTempPath),)),
                   mainButton(
                       text: 'Save',
                       textSize: 25,

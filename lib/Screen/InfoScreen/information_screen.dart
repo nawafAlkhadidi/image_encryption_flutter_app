@@ -19,12 +19,11 @@ class InformationScreen extends StatelessWidget {
     }
 
     return MaterialApp(
-        theme: ThemeData(fontFamily: 'Cairo'),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
               title: Text(
-                'About US',
+                'About Us',
                 style: TextStyle(
                   color: BlackColor,
                   fontSize: 25,
@@ -73,7 +72,7 @@ class InformationScreen extends StatelessWidget {
                       infoButton(
                         Title: "More information",
                         SubTitle:"More information about this app" ,
-                        icon: Icon(Icons.info , size: 38 , color: BlackColor,),
+                        icon: Icon(Icons.info , size: 38 , color: Color(0xff003366),),
                         Fun: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) => MoreinfoScreen()));
                         },
@@ -82,7 +81,7 @@ class InformationScreen extends StatelessWidget {
                       infoButton(
                         Title: "Contact the developer",
                         SubTitle:"Contact me directly through email" ,
-                        icon: Icon(Icons.email , size: 38 , color: BlackColor,),
+                        icon: Icon(Icons.email , size: 38 , color: Color(0xff003366),),
                         Fun: (){
                           email();
                         },
@@ -91,7 +90,7 @@ class InformationScreen extends StatelessWidget {
                       infoButton(
                         Title: "Acknowledgements",
                         SubTitle:"Thanks to services used in this app" ,
-                        icon: Icon(Icons.thumb_up , size: 38 , color: BlackColor,),
+                        icon: Icon(Icons.thumb_up , size: 38 , color: Color(0xff003366),),
                         Fun: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context) => AckScreen()));
                         },
@@ -99,7 +98,7 @@ class InformationScreen extends StatelessWidget {
                       ///TextVersio
                       Padding(
                         padding: const EdgeInsetsDirectional.only(top: 40),
-                        child: Text("Version: 1.0",
+                        child: Text("Version 1.0",
                           style: TextStyle(
                           fontSize: 27,
                             fontWeight: FontWeight.bold,
@@ -108,11 +107,14 @@ class InformationScreen extends StatelessWidget {
                       ),
                       ///NameOfDev
                       Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          padding: const EdgeInsets.symmetric(vertical: 20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("© 2021 Nawaf Alkhadidi | Yasser Bamogabel"),
+                              Text("© 2021 Nawaf Alkhadidi | Yasser Bamogabel",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold
+                              ),),
                             ],
                           ),
                         ),

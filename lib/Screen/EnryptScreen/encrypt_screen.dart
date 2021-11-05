@@ -40,16 +40,20 @@ class EncryptScreen extends StatelessWidget {
                       if (num == 1) {Navigator.pop(context),PRO.pickImage('key', ImageSource.camera)}
                     },
                   ),
-                  Container(
-                    height: 2,
-                    color: BlackColor.withOpacity(0.5),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      height: 0.5,
+                      color: BlackColor.withOpacity(0.2),
+                    ),
                   ),
                   ListTile(
                     leading: Icon(
-                      Icons.image,
+                      Icons.photo_library,
                       color:  BlackColor,
                     ),
-                    title: Text('From the gallery'),
+                    title: Text('From the Photo albums',style: TextStyle(
+                      color: BlackColor,)),
                     onTap: () => {
                       if (num == 0)
                         {Navigator.pop(context),PRO.pickImage('plain', ImageSource.gallery)},
@@ -57,6 +61,13 @@ class EncryptScreen extends StatelessWidget {
                         {Navigator.pop(context),PRO.pickImage('key', ImageSource.gallery)}
                     },
                   ),
+                   Padding(
+                     padding: const EdgeInsets.symmetric(horizontal: 20),
+                     child: Container(
+                      height: 0.5,
+                      color: BlackColor.withOpacity(0.2),
+                  ),
+                   ),
                   SizedBox(
                     height: 25,
                   ),
@@ -65,12 +76,11 @@ class EncryptScreen extends StatelessWidget {
             ));
 
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            'B9MAH ENCRYPTION',
+            'B9MAH ENCRYPT',
             style: TextStyle(
               color: BlackColor,
               fontSize: 24,
@@ -107,7 +117,7 @@ class EncryptScreen extends StatelessWidget {
                 children: [
                   SizedBox(height: 10),
                   Text(
-                    'Plain image',
+                    'Plain Image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: BlackColor,
@@ -131,18 +141,18 @@ class EncryptScreen extends StatelessWidget {
                                     width: 240,
                                     fit: BoxFit.contain)
                                 : Icon(
-                                    Icons.camera_alt_outlined,
-                                    size: 50,
-                                    color: BlackColor,
+                                    Icons.camera_alt,
+                                    size: 65,
+                              color:  BlackColor.withOpacity(.9),
                                   ),
                           ),
                         ],
                       )),
                   SizedBox(
-                    height: 4,
+                    height: 10,
                   ),
                   Text(
-                    'Key image',
+                    'Key Image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: BlackColor,
@@ -164,9 +174,9 @@ class EncryptScreen extends StatelessWidget {
                               ? Image.file(File(PRO.getImageKeyPath),
                                   height: 240, width: 240, fit: BoxFit.contain)
                               : Icon(
-                                  Icons.camera_alt_outlined,
-                                  size: 50,
-                                  color: BlackColor,
+                                  Icons.camera_alt,
+                                 size: 65,
+                              color:  BlackColor.withOpacity(.9),
                                 ),
                         ),
                       ],

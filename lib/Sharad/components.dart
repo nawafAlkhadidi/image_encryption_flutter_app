@@ -81,8 +81,9 @@ Widget infoButton({
                       child: Text(
                         Title,
                         style: TextStyle(
-                          fontSize: 19,
-                          fontWeight: FontWeight.bold
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff003366),
                         ),
                       ),
                     ),
@@ -90,8 +91,7 @@ Widget infoButton({
                       padding: const EdgeInsetsDirectional.only(start: 3),
                       child: Text(
                         SubTitle,
-                        style: TextStyle(fontSize: 14,
-                            fontWeight: FontWeight.bold,
+                        style: TextStyle(fontSize: 13,
                         color: BlackColor.withOpacity(0.6,),),
                       ),
                     ),

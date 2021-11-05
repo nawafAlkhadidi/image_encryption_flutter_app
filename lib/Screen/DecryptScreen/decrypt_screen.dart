@@ -6,14 +6,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
 import 'package:provider/provider.dart';
 
-
-
 class DecryptScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
-
 
     // Future<void> run() async {
     //
@@ -35,49 +31,73 @@ class DecryptScreen extends StatelessWidget {
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         context: context,
         builder: (context) => Container(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ListTile(
-                leading: Icon(
-                  Icons.camera_alt_outlined,
-                  color: BlackColor,
-                ),
-                title: Text('From the camera'),
-                onTap: () => {
-                  if (num == 0)
-                    {Navigator.pop(context),PRO.pickImage('plain', ImageSource.camera)},
-                  if (num == 1) {Navigator.pop(context),PRO.pickImage('key', ImageSource.camera)}
-                },
-              ),
-              Container(
-                    height: 1,
-                    color: BlackColor.withOpacity(0.5),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  ListTile(
+                    leading: Icon(
+                      Icons.camera_alt_outlined,
+                      color: BlackColor,
+                    ),
+                    title: Text('From the camera',
+                        style: TextStyle(
+                          color: BlackColor,
+                        )),
+                    onTap: () => {
+                      if (num == 0)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('plain', ImageSource.camera)
+                        },
+                      if (num == 1)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('key', ImageSource.camera)
+                        }
+                    },
                   ),
-              ListTile(
-                leading: Icon(
-                  Icons.image,
-                  color: BlackColor,
-                ),
-                title: Text('From the gallery'),
-                onTap: () => {
-                  if (num == 0)
-                    {Navigator.pop(context),PRO.pickImage('plain', ImageSource.gallery)},
-                  if (num == 1)
-                    {
-                     Navigator.pop(context),PRO.pickImage('key', ImageSource.gallery),
-                    }
-                },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      height: 0.5,
+                      color: BlackColor.withOpacity(0.2),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.photo_library,
+                      color: BlackColor,
+                    ),
+                    title: Text('From the Photo albums',
+                        style: TextStyle(
+                          color: BlackColor,
+                        )),
+                    onTap: () => {
+                      if (num == 0)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('plain', ImageSource.gallery)
+                        },
+                      if (num == 1)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('key', ImageSource.gallery),
+                        }
+                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      height: 0.5,
+                      color: BlackColor.withOpacity(0.2),
+                    ),
+                  ),
+                  SizedBox(height: 25),
+                ],
               ),
-              SizedBox(
-                height: 25
-              ),
-            ],
-          ),
-        ));
+            ));
 
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Cairo'),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -94,7 +114,7 @@ class DecryptScreen extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_left,
-              color:  BlackColor,
+              color: BlackColor,
               size: 26,
             ),
             onPressed: () {
@@ -107,13 +127,13 @@ class DecryptScreen extends StatelessWidget {
             height: MediaQuery.of(context).size.height,
             decoration: const BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [
-                    BoxBackgroundColor0,
-                    BoxBackgroundColor1,
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                )),
+              colors: [
+                BoxBackgroundColor0,
+                BoxBackgroundColor1,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            )),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -124,7 +144,7 @@ class DecryptScreen extends StatelessWidget {
                     'Encrypted Image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color:  BlackColor,
+                      color: BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -144,25 +164,25 @@ class DecryptScreen extends StatelessWidget {
                             },
                             child: PRO.isImagePlainPicked
                                 ? Image.file(File(PRO.getImagePlainPath),
-                                height: 240,
-                                width: 240,
-                                fit: BoxFit.contain)
+                                    height: 240,
+                                    width: 240,
+                                    fit: BoxFit.contain)
                                 : Icon(
-                              Icons.camera_alt_outlined,
-                              size: 50,
-                              color:  BlackColor,
-                            ),
+                                    Icons.camera_alt,
+                                    size: 65,
+                                    color: BlackColor.withOpacity(.9),
+                                  ),
                           ),
                         ],
                       )),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   Text(
-                    'Key image',
+                    'Key Image',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color:  BlackColor,
+                      color: BlackColor,
                       fontSize: 25,
                     ),
                   ),
@@ -178,42 +198,39 @@ class DecryptScreen extends StatelessWidget {
                               primary: Colors.white,
                             ),
                             onPressed: () => {
-
                               BottomSheet(1),
                             },
                             child: PRO.isImageKeyPicked
                                 ? Image.file(File(PRO.getImageKeyPath),
-                                height: 240,
-                                width: 240,
-                                fit: BoxFit.contain)
+                                    height: 240,
+                                    width: 240,
+                                    fit: BoxFit.contain)
                                 : Icon(
-                              Icons.camera_alt_outlined,
-                              size: 50,
-                              color:  BlackColor,
-                            ),
+                                    Icons.camera_alt,
+                                    size: 65,
+                                    color: BlackColor.withOpacity(.9),
+                                  ),
                           ),
                         ],
                       )),
                   Container(
-                    child:
-                    PRO.isImageKeyPicked && PRO.isImagePlainPicked
+                    child: PRO.isImageKeyPicked && PRO.isImagePlainPicked
                         ? mainButton(
-
-                      backGround: DecryptButtonColor.withOpacity(1),
-                      fun: (){
-                        PRO.run(context);
-                        },
-                      text: 'Decrypt',
-                      textSize: 27.5,
-                      icon: Icon(
-                        Icons.lock_open,
-                        color: Colors.white,
-                        size: 36.0,
-                      ),)
+                            backGround: DecryptButtonColor.withOpacity(1),
+                            fun: () {
+                              PRO.run(context);
+                            },
+                            text: 'Decrypt',
+                            textSize: 27.5,
+                            icon: Icon(
+                              Icons.lock_open,
+                              color: Colors.white,
+                              size: 36.0,
+                            ),
+                          )
                         : SizedBox(height: 10),
                   ),
                   SizedBox(height: 20),
-
                 ],
               ),
             )),

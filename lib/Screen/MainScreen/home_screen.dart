@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
     }
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Cairo'),
         home: Scaffold(
           appBar: homeAppBar(),
           body: Container(

@@ -3,33 +3,35 @@ import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class WelcomPage extends StatelessWidget {
-  static const pageDecoration = const PageDecoration(
+  
+  static const pageDecoration  = const PageDecoration(
     titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
     bodyTextStyle: TextStyle(
         fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
     descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-    //imagePadding: EdgeInsets.zero,
+    imagePadding: EdgeInsets.only(top: 30),
+  imageAlignment: Alignment.centerLeft
   );
 
   List<PageViewModel> getPages() {
     return [
       PageViewModel(
-        title: "Easy to Use",
+        title: "Enter the Plain image",
         body:
-            "The aim of the project is to develop a program for encryption images.To maintain users' privacy.",
+            "Just click and enter the image you want to encrypt",
         image: Padding(
           padding: const EdgeInsetsDirectional.only(top: 30),
-          child:  Image.asset('images/snap.png', height: 260.0),
+          child:  Image.asset('images/welcom_screen/step1.png',),
         ),
         decoration: pageDecoration,
       ),
       PageViewModel(
-        title: "High Level Security",
+        title: "ِEnter the Key image",
         body:
-            "The aim of the project is to develop a program for encryption images.To maintain users' privacy.",
+            "this key image ",
         image: Padding(
           padding: const EdgeInsetsDirectional.only(top: 30),
-          child: Image.asset('images/private-key.png', height: 260.0),
+          child: Image.asset('images/welcom_screen/step2.png'),
         ),
         decoration: pageDecoration,
       ),
@@ -39,7 +41,7 @@ class WelcomPage extends StatelessWidget {
               "The aim of the project is to develop a program for encryption images.To maintain users' privacy.",
           image: Padding(
             padding: const EdgeInsetsDirectional.only(top: 30),
-            child: Image.asset('images/gear.png', height: 260.0),
+            child: Image.asset('images/welcom_screen/step3.png'),
           ),
           decoration: pageDecoration)
     ];
