@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:image_encryption/Screen/ViewScreen/ViewImage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image/image.dart' as imgl;
-import '../../Process/EncryptDecrypt.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:math';
 import 'package:image_encryption/Process/EncryptDecrypt.dart';
@@ -144,7 +143,6 @@ class ImagesProvider extends ChangeNotifier {
     isLoading = value;
     notifyListeners();
   }
-
   bool get loading {
     return isLoading;
   }

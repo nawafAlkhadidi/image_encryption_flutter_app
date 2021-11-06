@@ -69,11 +69,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: FjallaOne
-      fonts:
-        - asset: fonts/FjallaOne-Regular.ttf
-#        - asset: fonts/Raleway-Italic.ttf
-    - family: Cairo
-      fonts:
-        - asset: fonts/Cairo-Regular.ttf
+  # fonts:
+    # - family: Cairo
+    #   fonts:
+    #     - asset: fonts/Cairo-Regular.ttf

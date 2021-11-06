@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
 import 'Screen/MainScreen/welcom_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
@@ -29,13 +30,12 @@ class _MyAppState extends State<MyApp> {
     return MultiProvider(
         providers: providersList,
         child: MaterialApp(
-            // theme: ThemeData(fontFamily: 'Cairo'),
             debugShowCheckedModeBanner: false,
             initialRoute:
                 initScreen == 0 || initScreen == null ? "/first" : "/",
             routes: {
               '/': (context) => WelcomPage(),
-              "/first": (context) => WelcomPage(),
+              "/first": (context) => HomePage(),
             }) //WelcomPage(),
         );
   }

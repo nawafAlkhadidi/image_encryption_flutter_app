@@ -31,13 +31,6 @@ class ViewImage extends StatelessWidget {
       await Navigator.pushReplacement(context, route);
     }
 
-    // closeScreen() async {
-    //   await File(PRO.getTempPath).delete(); // delete temp
-    //   PRO.clear(); // clear proivder
-    //   Route route = MaterialPageRoute(builder: (context) => HomePage());
-    //   await Navigator.pushReplacement(context, route);
-    // }
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(

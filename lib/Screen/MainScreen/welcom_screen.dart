@@ -3,32 +3,31 @@ import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
 class WelcomPage extends StatelessWidget {
-  
-  static const pageDecoration  = const PageDecoration(
-    titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-    bodyTextStyle: TextStyle(
-        fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
-    descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
-    imagePadding: EdgeInsets.only(top: 30),
-  imageAlignment: Alignment.centerLeft
-  );
+  static const pageDecoration = const PageDecoration(
+      titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
+      bodyTextStyle: TextStyle(
+          fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
+      descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+      imagePadding: EdgeInsets.only(top: 30),
+      imageAlignment: Alignment.centerLeft);
 
   List<PageViewModel> getPages() {
     return [
       PageViewModel(
-        title: "Enter the Plain image",
-        body:
-            "Just click and enter the image you want to encrypt",
+        title: "Enter The Plain Image",
+        body: "Just click and chose the image you want to encrypt or decrypt",
         image: Padding(
           padding: const EdgeInsetsDirectional.only(top: 30),
-          child:  Image.asset('images/welcom_screen/step1.png',),
+          child: Image.asset(
+            'images/welcom_screen/step1.png',
+          ),
         ),
         decoration: pageDecoration,
       ),
       PageViewModel(
-        title: "ِEnter the Key image",
+        title: "ِEnter The Key Image",
         body:
-            "this key image ",
+            "Enter another image to use it as a key which is required to encode the original image that you want to decrypt or encrypt",
         image: Padding(
           padding: const EdgeInsetsDirectional.only(top: 30),
           child: Image.asset('images/welcom_screen/step2.png'),
@@ -36,9 +35,9 @@ class WelcomPage extends StatelessWidget {
         decoration: pageDecoration,
       ),
       PageViewModel(
-          title: "Easy to Implementation",
+          title: "Ready To Use",
           body:
-              "The aim of the project is to develop a program for encryption images.To maintain users' privacy.",
+              "Now the image is eather encrypted or decrpted upon your choice. Don't forgot you must have your key image!",
           image: Padding(
             padding: const EdgeInsetsDirectional.only(top: 30),
             child: Image.asset('images/welcom_screen/step3.png'),
@@ -46,7 +45,6 @@ class WelcomPage extends StatelessWidget {
           decoration: pageDecoration)
     ];
   }
-
   Widget build(BuildContext context) {
     return Container(
         child: IntroductionScreen(

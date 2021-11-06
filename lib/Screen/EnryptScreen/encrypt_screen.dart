@@ -7,18 +7,18 @@ import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
 import 'package:provider/provider.dart';
 import 'package:status_alert/status_alert.dart';
 
-
 class EncryptScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
 
-    // Future<void> run1() async {
-    //   await Navigator.of(context).pushNamed('/imageView');
-    // }
+    Future<void> run1() async {
+      PRO.run(context);
+      await Navigator.of(context).pushNamed('/imageView');
+    }
 
     void BottomSheet(int num) => showModalBottomSheet(
-      isScrollControlled: true,
+        isScrollControlled: true,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20), topRight: Radius.circular(20))),
@@ -30,14 +30,23 @@ class EncryptScreen extends StatelessWidget {
                   ListTile(
                     leading: Icon(
                       Icons.camera_alt_outlined,
-                      color:  BlackColor,
+                      color: BlackColor,
                     ),
-                    title: Text('From the camera', style: TextStyle(
-                      color: BlackColor,)),
+                    title: Text('From the camera',
+                        style: TextStyle(
+                          color: BlackColor,
+                        )),
                     onTap: () => {
                       if (num == 0)
-                        {Navigator.pop(context),PRO.pickImage('plain', ImageSource.camera)},
-                      if (num == 1) {Navigator.pop(context),PRO.pickImage('key', ImageSource.camera)}
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('plain', ImageSource.camera)
+                        },
+                      if (num == 1)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('key', ImageSource.camera)
+                        }
                     },
                   ),
                   Padding(
@@ -50,24 +59,32 @@ class EncryptScreen extends StatelessWidget {
                   ListTile(
                     leading: Icon(
                       Icons.photo_library,
-                      color:  BlackColor,
+                      color: BlackColor,
                     ),
-                    title: Text('From the Photo albums',style: TextStyle(
-                      color: BlackColor,)),
+                    title: Text('From the Photo albums',
+                        style: TextStyle(
+                          color: BlackColor,
+                        )),
                     onTap: () => {
                       if (num == 0)
-                        {Navigator.pop(context),PRO.pickImage('plain', ImageSource.gallery)},
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('plain', ImageSource.gallery)
+                        },
                       if (num == 1)
-                        {Navigator.pop(context),PRO.pickImage('key', ImageSource.gallery)}
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('key', ImageSource.gallery)
+                        }
                     },
                   ),
-                   Padding(
-                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                     child: Container(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
                       height: 0.5,
                       color: BlackColor.withOpacity(0.2),
+                    ),
                   ),
-                   ),
                   SizedBox(
                     height: 25,
                   ),
@@ -92,7 +109,7 @@ class EncryptScreen extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.keyboard_arrow_left,
-              color:  BlackColor,
+              color: BlackColor,
               size: 26,
             ),
             onPressed: () {
@@ -143,7 +160,7 @@ class EncryptScreen extends StatelessWidget {
                                 : Icon(
                                     Icons.camera_alt,
                                     size: 65,
-                              color:  BlackColor.withOpacity(.9),
+                                    color: BlackColor.withOpacity(.9),
                                   ),
                           ),
                         ],
@@ -175,21 +192,20 @@ class EncryptScreen extends StatelessWidget {
                                   height: 240, width: 240, fit: BoxFit.contain)
                               : Icon(
                                   Icons.camera_alt,
-                                 size: 65,
-                              color:  BlackColor.withOpacity(.9),
+                                  size: 65,
+                                  color: BlackColor.withOpacity(.9),
                                 ),
                         ),
                       ],
                     ),
                   ),
-
-                  // PRO.loading
-                  //     ? CircularProgressIndicator()
-                  //     : OutlinedButton(onPressed: run1, child: Text("encrypt")),
-                  // CircularProgressIndicator(),
+                  PRO.loading
+                      ? CircularProgressIndicator()
+                      : OutlinedButton(
+                          onPressed: run1, child: Text("encrypt")),
                   PRO.isImageKeyPicked && PRO.isImagePlainPicked
                       ? mainButton(
-                          backGround:  EncryptButtonColor,
+                          backGround: EncryptButtonColor,
                           text: 'Encrypt',
                           icon: Icon(
                             Icons.lock,

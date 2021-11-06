@@ -11,13 +11,14 @@ Future<imgl.Image> EncryptDecrypt(
 
   /// STEP one -  XOR algorithm ecrypt bassed on the key image -  more faster and secure
 
-  ///  map - DANA
+  ///  map - DNA
   for (var i = 0; i < imageKey.length; i++) {
     // shuffle > non-random
     int shift = (i + 1) % imageKey.length;
     int xshift = (i * 255) % imageKey.length;
     imageKey[shift] = imageKey[shift] ^ imageKey[xshift];
   }
+  
 
   /// encrypt
   for (int i = 0; i < imagePlain.length; i++) {
