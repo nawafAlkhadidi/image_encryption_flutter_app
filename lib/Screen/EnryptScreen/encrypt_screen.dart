@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_encryption/Screen/ViewScreen/ViewImage.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,15 +14,16 @@ class EncryptScreen extends StatelessWidget {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
 
     Future<void> run1() async {
-      PRO.run(context);
-      await Navigator.of(context).pushNamed('/imageView');
+      await Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ViewImage(
+                plainPP: PRO.getImagePlainPath,
+                keyPP: PRO.getImageKeyPath,
+              )));
     }
 
     void BottomSheet(int num) => showModalBottomSheet(
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         context: context,
         builder: (context) => Container(
               child: Column(
@@ -37,16 +39,8 @@ class EncryptScreen extends StatelessWidget {
                           color: BlackColor,
                         )),
                     onTap: () => {
-                      if (num == 0)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('plain', ImageSource.camera)
-                        },
-                      if (num == 1)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('key', ImageSource.camera)
-                        }
+                      if (num == 0) {Navigator.pop(context), PRO.pickImage('plain', ImageSource.camera)},
+                      if (num == 1) {Navigator.pop(context), PRO.pickImage('key', ImageSource.camera)}
                     },
                   ),
                   Padding(
@@ -66,16 +60,8 @@ class EncryptScreen extends StatelessWidget {
                           color: BlackColor,
                         )),
                     onTap: () => {
-                      if (num == 0)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('plain', ImageSource.gallery)
-                        },
-                      if (num == 1)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('key', ImageSource.gallery)
-                        }
+                      if (num == 0) {Navigator.pop(context), PRO.pickImage('plain', ImageSource.gallery)},
+                      if (num == 1) {Navigator.pop(context), PRO.pickImage('key', ImageSource.gallery)}
                     },
                   ),
                   Padding(
@@ -92,91 +78,54 @@ class EncryptScreen extends StatelessWidget {
               ),
             ));
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'B9MAH ENCRYPT',
-            style: TextStyle(
-              color: BlackColor,
-              fontSize: 24,
-            ),
-          ),
-          backgroundColor: const Color(0xffA9DBEE),
-          centerTitle: true,
-          elevation: 0.5,
-          leading: IconButton(
-            icon: Icon(
-              Icons.keyboard_arrow_left,
-              color: BlackColor,
-              size: 26,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'B9MAH ENCRYPT',
+          style: TextStyle(
+            color: BlackColor,
+            fontSize: 24,
           ),
         ),
-        body: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            decoration: const BoxDecoration(
-                gradient: LinearGradient(
-              colors: [
-                BoxBackgroundColor0,
-                BoxBackgroundColor1,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(height: 10),
-                  Text(
-                    'Plain Image',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: BlackColor,
-                      fontSize: 25,
-                    ),
+        backgroundColor: const Color(0xffA9DBEE),
+        centerTitle: true,
+        elevation: 0.5,
+        leading: IconButton(
+          icon: Icon(
+            Icons.keyboard_arrow_left,
+            color: BlackColor,
+            size: 26,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            colors: [
+              BoxBackgroundColor0,
+              BoxBackgroundColor1,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          )),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                Text(
+                  'Plain Image',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: BlackColor,
+                    fontSize: 25,
                   ),
-                  Container(
-                      width: 260,
-                      height: 260,
-                      color: Colors.white.withOpacity(0.5),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              BottomSheet(0);
-                            },
-                            child: PRO.isImagePlainPicked
-                                ? Image.file(File(PRO.getImagePlainPath),
-                                    height: 240,
-                                    width: 240,
-                                    fit: BoxFit.contain)
-                                : Icon(
-                                    Icons.camera_alt,
-                                    size: 65,
-                                    color: BlackColor.withOpacity(.9),
-                                  ),
-                          ),
-                        ],
-                      )),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    'Key Image',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: BlackColor,
-                      fontSize: 25,
-                    ),
-                  ),
-                  Container(
+                ),
+                Container(
                     width: 260,
                     height: 260,
                     color: Colors.white.withOpacity(0.5),
@@ -184,12 +133,11 @@ class EncryptScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
-                          onPressed: () => {
-                            BottomSheet(1),
+                          onPressed: () {
+                            BottomSheet(0);
                           },
-                          child: PRO.isImageKeyPicked
-                              ? Image.file(File(PRO.getImageKeyPath),
-                                  height: 240, width: 240, fit: BoxFit.contain)
+                          child: PRO.isImagePlainPicked
+                              ? Image.file(File(PRO.getImagePlainPath), height: 240, width: 240, fit: BoxFit.contain)
                               : Icon(
                                   Icons.camera_alt,
                                   size: 65,
@@ -197,47 +145,72 @@ class EncryptScreen extends StatelessWidget {
                                 ),
                         ),
                       ],
-                    ),
+                    )),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Key Image',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: BlackColor,
+                    fontSize: 25,
                   ),
-                  PRO.loading
-                      ? CircularProgressIndicator()
-                      : OutlinedButton(
-                          onPressed: run1, child: Text("encrypt")),
-                  PRO.isImageKeyPicked && PRO.isImagePlainPicked
-                      ? mainButton(
-                          backGround: EncryptButtonColor,
-                          text: 'Encrypt',
-                          icon: Icon(
-                            Icons.lock,
-                            color: WhiteColor,
-                            size: 36.0,
-                          ),
-                          fun: () {
-                            PRO.isImageKeyLargerThanPlain()
-                                ? PRO.loading
-                                    ? CircularProgressIndicator()
-                                    : PRO.run(context)
-                                : StatusAlert.show(
-                                    context,
-                                    duration: Duration(seconds: 5),
-                                    title: 'Wrong',
-                                    subtitle:
-                                        'Image key must be larger than Image plain',
-                                    configuration:
-                                        IconConfiguration(icon: Icons.error),
-                                    backgroundColor: WhiteColor,
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 10),
-                                    dismissOnBackgroundTap: true,
-                                  );
-                          },
-                        )
-                      : SizedBox.shrink(),
-                  SizedBox(height: 20),
-                ],
-              ),
-            )),
-      ),
+                ),
+                Container(
+                  width: 260,
+                  height: 260,
+                  color: Colors.white.withOpacity(0.5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () => {
+                          BottomSheet(1),
+                        },
+                        child: PRO.isImageKeyPicked
+                            ? Image.file(File(PRO.getImageKeyPath), height: 240, width: 240, fit: BoxFit.contain)
+                            : Icon(
+                                Icons.camera_alt,
+                                size: 65,
+                                color: BlackColor.withOpacity(.9),
+                              ),
+                      ),
+                    ],
+                  ),
+                ),
+                PRO.loading ? CircularProgressIndicator() : OutlinedButton(onPressed: run1, child: Text("encrypt")),
+                PRO.isImageKeyPicked && PRO.isImagePlainPicked
+                    ? mainButton(
+                        backGround: EncryptButtonColor,
+                        text: 'Encrypt',
+                        icon: Icon(
+                          Icons.lock,
+                          color: WhiteColor,
+                          size: 36.0,
+                        ),
+                        fun: () {
+                          PRO.isImageKeyLargerThanPlain()
+                              ? PRO.loading
+                                  ? CircularProgressIndicator()
+                                  : run1
+                              : StatusAlert.show(
+                                  context,
+                                  duration: Duration(seconds: 5),
+                                  title: 'Wrong',
+                                  subtitle: 'Image key must be larger than Image plain',
+                                  configuration: IconConfiguration(icon: Icons.error),
+                                  backgroundColor: WhiteColor,
+                                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                                  dismissOnBackgroundTap: true,
+                                );
+                        },
+                      )
+                    : SizedBox.shrink(),
+                SizedBox(height: 20),
+              ],
+            ),
+          )),
     );
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomPage extends StatelessWidget {
   static const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: TextStyle(
-          fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
+      bodyTextStyle: TextStyle(fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       imagePadding: EdgeInsets.only(top: 30),
       imageAlignment: Alignment.centerLeft);
@@ -26,8 +26,7 @@ class WelcomPage extends StatelessWidget {
       ),
       PageViewModel(
         title: "ِEnter The Key Image",
-        body:
-            "Enter another image to use it as a key which is required to encode the original image that you want to decrypt or encrypt",
+        body: "Enter another image to use it as a key which is required to encode the original image that you want to decrypt or encrypt",
         image: Padding(
           padding: const EdgeInsetsDirectional.only(top: 30),
           child: Image.asset('images/welcom_screen/step2.png'),
@@ -36,8 +35,7 @@ class WelcomPage extends StatelessWidget {
       ),
       PageViewModel(
           title: "Ready To Use",
-          body:
-              "Now the image is eather encrypted or decrpted upon your choice. Don't forgot you must have your key image!",
+          body: "Now the image is eather encrypted or decrpted upon your choice. Don't forgot you must have your key image!",
           image: Padding(
             padding: const EdgeInsetsDirectional.only(top: 30),
             child: Image.asset('images/welcom_screen/step3.png'),
@@ -45,6 +43,7 @@ class WelcomPage extends StatelessWidget {
           decoration: pageDecoration)
     ];
   }
+
   Widget build(BuildContext context) {
     return Container(
         child: IntroductionScreen(
@@ -84,7 +83,14 @@ class WelcomPage extends StatelessWidget {
     ));
   }
 
-  void goToHome(context) => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (_) => HomePage()),
-      );
+  void goToHome(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var isSet = await prefs.setString("initScreen", "true");
+    if (isSet) {
+      print("initScreen set to true");
+    }
+    await Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (_) => HomePage()),
+    );
+  }
 }

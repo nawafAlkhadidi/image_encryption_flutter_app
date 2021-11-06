@@ -5,38 +5,37 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
 import 'package:provider/provider.dart';
 
-int initScreen;
+var providersList = [
+  ChangeNotifierProvider(create: (context) => ImagesProvider()),
+];
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  initScreen = await prefs.getInt("initScreen");
-  await prefs.setInt("initScreen", 1);
+  String initScreen = await prefs.getString("initScreen"); // null
+
   print('initScreen ${initScreen}');
-  runApp(MyApp());
+  runApp(MyApp(
+    initScreen: initScreen,
+  ));
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+class MyApp extends StatelessWidget {
+  final initScreen;
 
-class _MyAppState extends State<MyApp> {
-  var providersList = [
-    ChangeNotifierProvider(create: (context) => ImagesProvider()),
-  ];
+  const MyApp({Key key, @required this.initScreen}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: providersList,
         child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            initialRoute:
-                initScreen == 0 || initScreen == null ? "/first" : "/",
-            routes: {
-              '/': (context) => WelcomPage(),
-              "/first": (context) => HomePage(),
-            }) //WelcomPage(),
+          debugShowCheckedModeBanner: false,
+          initialRoute: initScreen != "true" || initScreen == null ? "/welcomePage" : "/homePage",
+          routes: {
+            '/welcomePage': (context) => WelcomPage(),
+            "/homePage": (context) => HomePage(),
+          },
+        ) //WelcomPage(),
         );
   }
 }

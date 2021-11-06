@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:io';
 import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
@@ -8,11 +9,40 @@ import 'package:gallery_saver/gallery_saver.dart';
 import 'package:provider/provider.dart';
 import 'package:status_alert/status_alert.dart';
 
-class ViewImage extends StatelessWidget {
+class ViewImage extends StatefulWidget {
+  final plainPP;
+  final keyPP;
+
+  const ViewImage({Key key, this.plainPP, this.keyPP}) : super(key: key);
+  @override
+  State<ViewImage> createState() => _ViewImageState(this.plainPP, this.keyPP);
+}
+
+class _ViewImageState extends State<ViewImage> {
+  ImagesProvider PROFULL = ImagesProvider();
+
+  String tPath = 'null';
+
+  _ViewImageState(plainPP, keyPP);
+
+  Future<void> doAction() async {
+    await Future.delayed(Duration(milliseconds: 900));
+    String p = await PROFULL.runAfter(this.widget.plainPP, this.widget.keyPP);
+
+    setState(() {
+      tPath = p;
+    });
+  }
+
+  @override
+  void initState() {
+    doAction();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
-
 
     saveImage() async {
       StatusAlert.show(
@@ -24,9 +54,9 @@ class ViewImage extends StatelessWidget {
         backgroundColor: WhiteColor,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       );
-      await GallerySaver.saveImage(PRO.getTempPath); // save in Gallery
-      await File(PRO.getTempPath).delete(); // delete temp
-      PRO.clear(); // clear provider
+      await GallerySaver.saveImage(this.tPath); // save in Gallery
+      await File(this.tPath).delete(); // delete temp
+      await PRO.clear();
       Route route = MaterialPageRoute(builder: (context) => HomePage());
       await Navigator.pushReplacement(context, route);
     }
@@ -82,10 +112,15 @@ class ViewImage extends StatelessWidget {
                       fontSize: 25,
                     ),
                   ),
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      child: Image.file(File(PRO.getTempPath),)),
+                  this.tPath == "null"
+                      ? CircularProgressIndicator()
+                      : Container(
+                          width: MediaQuery.of(context).size.width * 0.8,
+                          height: MediaQuery.of(context).size.height * 0.4,
+                          child: Image.file(
+                            File(this.tPath),
+                          ),
+                        ),
                   mainButton(
                       text: 'Save',
                       textSize: 25,
@@ -96,9 +131,7 @@ class ViewImage extends StatelessWidget {
                         color: WhiteColor,
                       ),
                       backGround: Colors.lightBlue,
-                      fun: () {
-                        saveImage();
-                      })
+                      fun: saveImage)
                 ],
               ),
             )),

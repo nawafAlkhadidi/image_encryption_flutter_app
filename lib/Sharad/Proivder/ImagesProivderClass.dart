@@ -130,34 +130,37 @@ class ImagesProvider extends ChangeNotifier {
     return ((size / pow(1024, i)).toStringAsFixed(decimals)) + suffixes[i];
   }
 
-  clear() {
+  Future<void> clear() async {
     imagePlainPath = 'null';
     imagePlainSize = 0;
     imageKeyPath = 'null';
     imageKeySize = 0;
     tempPath = 'null';
     isLoading = false;
+    print("cleared");
   }
 
   setIsLoading(bool value) {
     isLoading = value;
     notifyListeners();
   }
+
   bool get loading {
     return isLoading;
   }
 
   Future<void> run(context) async {
-    imgl.Image img = await EncryptDecrypt(getImagePlainPath, getImageKeyPath);
+    await Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewImage())); // path = null
+  }
+
+  Future<String> runAfter(String getImagePlainPath_new, String getImageKeyPath_new) async {
+    imgl.Image img = await EncryptDecrypt(getImagePlainPath_new, getImageKeyPath_new);
     Directory dir = await getApplicationDocumentsDirectory();
-    File file =
-        await File(dir.path + "/B9mah_Encrypt${Random().nextInt(1000)}.jpeg")
-            .create();
+    File file = await File(dir.path + "/B9mah_Encrypt${Random().nextInt(1000)}.png").create();
     await file.writeAsBytes(imgl.encodePng(img));
     print(file.path);
-    setTempPath(file.path);
+    return file.path;
 
-    await Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => ViewImage()));
+    /// path image setState({})
   }
 }
