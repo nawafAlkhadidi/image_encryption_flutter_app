@@ -1,4 +1,4 @@
-import 'dart:ffi';
+// import 'dart:ffi';
 import 'dart:io';
 import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
@@ -61,81 +61,82 @@ class _ViewImageState extends State<ViewImage> {
       await Navigator.pushReplacement(context, route);
     }
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'B9MAH ENCRYPTION',
-            style: TextStyle(
-              color: BlackColor,
-              fontSize: 24,
-            ),
-          ),
-          backgroundColor: Color(0xffA9DBEE),
-          centerTitle: true,
-          elevation: 0.5,
-          leading: IconButton(
-            icon: Icon(
-              Icons.keyboard_arrow_left,
-              color: BlackColor,
-              size: 26,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'B9MAH ENCRYPTION',
+          style: TextStyle(
+            color: BlackColor,
+            fontSize: 24,
           ),
         ),
-        body: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-              colors: [
-                BoxBackgroundColor0,
-                BoxBackgroundColor1,
-              ],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            )),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    'Encrypted Image',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: BlackColor,
-                      fontSize: 25,
-                    ),
-                  ),
-                  this.tPath == "null"
-                      ? CircularProgressIndicator()
-                      : Container(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          child: Image.file(
-                            File(this.tPath),
-                          ),
-                        ),
-                  mainButton(
-                      text: 'Save',
-                      textSize: 25,
-                      textColors: WhiteColor,
-                      icon: Icon(
-                        Icons.add,
-                        size: 42,
-                        color: WhiteColor,
-                      ),
-                      backGround: Colors.lightBlue,
-                      fun: saveImage)
-                ],
-              ),
-            )),
+        backgroundColor: Color(0xffA9DBEE),
+        centerTitle: true,
+        elevation: 0.5,
+        leading: IconButton(
+          icon: Icon(
+            Icons.keyboard_arrow_left,
+            color: BlackColor,
+            size: 26,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
+      body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            colors: [
+              BoxBackgroundColor0,
+              BoxBackgroundColor1,
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          )),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'Encrypted Image',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: BlackColor,
+                    fontSize: 25,
+                  ),
+                ),
+                this.tPath == "null"
+                    ? Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        color: Colors.white.withOpacity(0.5),
+                        child: Container( height: 5,width: 5, child: CircularProgressIndicator()))
+                    : Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        child: Image.file(
+                          File(this.tPath),
+                        ),
+                      ),
+                mainButton(
+                    text: 'Save',
+                    textSize: 25,
+                    textColors: WhiteColor,
+                    icon: Icon(
+                      Icons.add,
+                      size: 42,
+                      color: WhiteColor,
+                    ),
+                    backGround: Colors.lightBlue,
+                    fun: saveImage)
+              ],
+            ),
+          )),
     );
   }
 }

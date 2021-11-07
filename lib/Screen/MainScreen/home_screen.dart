@@ -26,9 +26,7 @@ class HomePage extends StatelessWidget {
       await Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => DecryptScreen()));
     }
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+    return Scaffold(
           appBar: homeAppBar(),
           body: Container(
             height: MediaQuery.of(context).size.height,
@@ -81,7 +79,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        );
   }
 
   AppBar homeAppBar() {

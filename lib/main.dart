@@ -12,7 +12,7 @@ var providersList = [
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  String initScreen = await prefs.getString("initScreen"); // null
+  String initScreen = await prefs.getString("0"); // null
 
   print('initScreen ${initScreen}');
   runApp(MyApp(

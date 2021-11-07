@@ -137,7 +137,6 @@ class ImagesProvider extends ChangeNotifier {
     imageKeySize = 0;
     tempPath = 'null';
     isLoading = false;
-    print("cleared");
   }
 
   setIsLoading(bool value) {
@@ -149,9 +148,9 @@ class ImagesProvider extends ChangeNotifier {
     return isLoading;
   }
 
-  Future<void> run(context) async {
-    await Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewImage())); // path = null
-  }
+  // Future<void> run(context) async {
+  //   await Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewImage())); // path = null
+  // }
 
   Future<String> runAfter(String getImagePlainPath_new, String getImageKeyPath_new) async {
     imgl.Image img = await EncryptDecrypt(getImagePlainPath_new, getImageKeyPath_new);
@@ -160,7 +159,5 @@ class ImagesProvider extends ChangeNotifier {
     await file.writeAsBytes(imgl.encodePng(img));
     print(file.path);
     return file.path;
-
-    /// path image setState({})
   }
 }

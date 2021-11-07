@@ -4,9 +4,7 @@ import 'package:image_encryption/Sharad/Colors.dart';
 class MoreinfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(
+        return Scaffold(
           appBar: AppBar(
             title: Text(
               'More Information',
@@ -112,6 +110,6 @@ class MoreinfoScreen extends StatelessWidget {
               ),
             ),
           ),
-        ));
+        );
   }
 }

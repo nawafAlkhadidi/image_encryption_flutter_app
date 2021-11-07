@@ -13,7 +13,7 @@ class EncryptScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ImagesProvider PRO = Provider.of<ImagesProvider>(context);
 
-    Future<void> run1() async {
+    Future<void> run() async {
       await Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => ViewImage(
                 plainPP: PRO.getImagePlainPath,
@@ -179,7 +179,6 @@ class EncryptScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                PRO.loading ? CircularProgressIndicator() : OutlinedButton(onPressed: run1, child: Text("encrypt")),
                 PRO.isImageKeyPicked && PRO.isImagePlainPicked
                     ? mainButton(
                         backGround: EncryptButtonColor,
@@ -191,9 +190,7 @@ class EncryptScreen extends StatelessWidget {
                         ),
                         fun: () {
                           PRO.isImageKeyLargerThanPlain()
-                              ? PRO.loading
-                                  ? CircularProgressIndicator()
-                                  : run1
+                              ? run ()
                               : StatusAlert.show(
                                   context,
                                   duration: Duration(seconds: 5),

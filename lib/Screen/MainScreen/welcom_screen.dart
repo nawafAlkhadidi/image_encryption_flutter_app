@@ -71,7 +71,7 @@ class WelcomPage extends StatelessWidget {
       onSkip: () => goToHome(context),
       pages: getPages(),
       globalBackgroundColor: Color(0xffE7ECF5),
-      // globalBackgroundColor: Color(0xffA9DBEE),
+       //globalBackgroundColor: Color(0xffA9DBEE),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),
@@ -85,7 +85,7 @@ class WelcomPage extends StatelessWidget {
 
   void goToHome(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    var isSet = await prefs.setString("initScreen", "true");
+    var isSet = await prefs.setString("1", "true");
     if (isSet) {
       print("initScreen set to true");
     }
