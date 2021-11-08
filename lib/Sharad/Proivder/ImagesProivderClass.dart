@@ -1,7 +1,6 @@
 // ignore_for_file: file_names
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_encryption/Screen/ViewScreen/ViewImage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image/image.dart' as imgl;
 import 'package:path_provider/path_provider.dart';

@@ -81,7 +81,7 @@ class EncryptScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'B9MAH ENCRYPT',
+          'ENCRYPT',
           style: TextStyle(
             color: BlackColor,
             fontSize: 24,

@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
   AppBar homeAppBar() {
     return AppBar(
       title: Text(
-        'B9MAH ENCRYPTION',
+        'B9MAH',
         style: TextStyle(
           color: BlackColor,
           fontSize: 24,
@@ -94,6 +94,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Color(0xffA9DBEE),
       centerTitle: true,
       elevation: 0.5,
+      automaticallyImplyLeading: false,
     );
   }
 }

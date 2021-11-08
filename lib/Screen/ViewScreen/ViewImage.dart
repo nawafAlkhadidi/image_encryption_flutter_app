@@ -57,6 +57,8 @@ class _ViewImageState extends State<ViewImage> {
       await GallerySaver.saveImage(this.tPath); // save in Gallery
       await File(this.tPath).delete(); // delete temp
       await PRO.clear();
+      // await Navigator.of(context)
+      //     .push(MaterialPageRoute(builder: (context) => HomePage()));
       Route route = MaterialPageRoute(builder: (context) => HomePage());
       await Navigator.pushReplacement(context, route);
     }
@@ -64,7 +66,7 @@ class _ViewImageState extends State<ViewImage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'B9MAH ENCRYPTION',
+          'B9MAH',
           style: TextStyle(
             color: BlackColor,
             fontSize: 24,
@@ -111,11 +113,14 @@ class _ViewImageState extends State<ViewImage> {
                   ),
                 ),
                 this.tPath == "null"
-                    ? Container(
-                        width: MediaQuery.of(context).size.width * 0.8,
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        color: Colors.white.withOpacity(0.5),
-                        child: Container( height: 5,width: 5, child: CircularProgressIndicator()))
+                    ? Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Container(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Container( height: 200,width: 200, child: Center(child: CircularProgressIndicator())),
+                          )),
+                    )
                     : Container(
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: MediaQuery.of(context).size.height * 0.4,
@@ -128,8 +133,8 @@ class _ViewImageState extends State<ViewImage> {
                     textSize: 25,
                     textColors: WhiteColor,
                     icon: Icon(
-                      Icons.add,
-                      size: 42,
+                      Icons.download_for_offline,
+                      size: 37,
                       color: WhiteColor,
                     ),
                     backGround: Colors.lightBlue,

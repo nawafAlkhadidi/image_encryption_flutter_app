@@ -7,7 +7,7 @@ class AckScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Acknowledgements',
+          'B9MAH',
           style: TextStyle(
             color: BlackColor,
             fontSize: 25,
