@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:image_encryption/Screen/InfoScreen/AckScreen.dart';
 import 'package:image_encryption/Screen/InfoScreen/MoreInfoScreen.dart';
+import 'package:image_encryption/Screen/InfoScreen/privacy_srceen.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:image_encryption/Sharad/GetEmail.dart';
@@ -96,16 +96,16 @@ class InformationScreen extends StatelessWidget {
 
                   ///Acknowledge Button 3
                   infoButton(
-                    Title: "Acknowledgements",
+                    Title: "privacy policy",
                     SubTitle: "Thanks to services used in this app",
                     icon: Icon(
-                      Icons.thumb_up,
+                      Icons.privacy_tip,
                       size: 38,
                       color: Color(0xff003366),
                     ),
                     Fun: () {
                       Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => AckScreen()));
+                          MaterialPageRoute(builder: (context) => privacySrceen()));
                     },
                   ),
 

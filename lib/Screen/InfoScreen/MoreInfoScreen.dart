@@ -101,6 +101,16 @@ class MoreinfoScreen extends StatelessWidget {
                                   color: BlackColor,
                                 ),
                                 textAlign: TextAlign.justify),
+                                SizedBox(
+                              height: 30,
+                            ),
+                            Text(
+                                'Copyright © 2021 : Dr. Nashwan Alromema - Nawaf Alkhadidi - Yasser Bamogabe . All rights reserved',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: BlackColor,
+                                ),
+                                textAlign: TextAlign.justify),
                           ],
                         ),
                       ),

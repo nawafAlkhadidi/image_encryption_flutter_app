@@ -2,7 +2,7 @@
     package="com.example.image_encryption">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
    <application
-        android:label="image_encryption"
+        android:label="B9mah"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
