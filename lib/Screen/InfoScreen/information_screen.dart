@@ -96,8 +96,8 @@ class InformationScreen extends StatelessWidget {
 
                   ///Acknowledge Button 3
                   infoButton(
-                    Title: "privacy policy",
-                    SubTitle: "Thanks to services used in this app",
+                    Title: "Privacy policy",
+                    SubTitle: "Privacy policy about in this app",
                     icon: Icon(
                       Icons.privacy_tip,
                       size: 38,
