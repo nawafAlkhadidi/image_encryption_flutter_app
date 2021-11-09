@@ -1,11 +1,13 @@
-// import 'dart:ffi';
 import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
 import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
+import 'package:image_encryption/Sharad/adaptive_indicator.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
+import 'package:image_encryption/Sharad/constants.dart';
 import 'package:provider/provider.dart';
 import 'package:status_alert/status_alert.dart';
 
@@ -57,8 +59,6 @@ class _ViewImageState extends State<ViewImage> {
       await GallerySaver.saveImage(this.tPath); // save in Gallery
       await File(this.tPath).delete(); // delete temp
       await PRO.clear();
-      // await Navigator.of(context)
-      //     .push(MaterialPageRoute(builder: (context) => HomePage()));
       Route route = MaterialPageRoute(builder: (context) => HomePage());
       await Navigator.pushReplacement(context, route);
     }
@@ -114,13 +114,19 @@ class _ViewImageState extends State<ViewImage> {
                 ),
                 this.tPath == "null"
                     ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Container(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Container( height: 200,width: 200, child: Center(child: CircularProgressIndicator())),
-                          )),
-                    )
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Container(
+                            child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Container(
+                            height: 200,
+                            width: 200,
+                            child: Center(
+                              child: AdaptiveIndicator(os: getOS()),
+                            ),
+                          ),
+                        )),
+                      )
                     : Container(
                         width: MediaQuery.of(context).size.width * 0.8,
                         height: MediaQuery.of(context).size.height * 0.4,

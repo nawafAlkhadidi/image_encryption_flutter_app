@@ -30,12 +30,13 @@ class MyApp extends StatelessWidget {
         providers: providersList,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: initScreen != "true" || initScreen == null ? "/welcomePage" : "/homePage",
+          initialRoute: initScreen != "true" || initScreen == null
+              ? "/welcomePage"
+              : "/homePage",
           routes: {
             '/welcomePage': (context) => WelcomPage(),
             "/homePage": (context) => HomePage(),
           },
-        ) //WelcomPage(),
-        );
+        ));
   }
 }

@@ -4,9 +4,11 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomPage extends StatelessWidget {
+  
   static const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
-      bodyTextStyle: TextStyle(fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
+      bodyTextStyle: TextStyle(
+          fontSize: 19.0, color: Colors.black45, fontWeight: FontWeight.w600),
       descriptionPadding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
       imagePadding: EdgeInsets.only(top: 30),
       imageAlignment: Alignment.centerLeft);
@@ -26,7 +28,8 @@ class WelcomPage extends StatelessWidget {
       ),
       PageViewModel(
         title: "ِEnter The Key Image",
-        body: "Enter another image to use it as a key which is required to encode the original image that you want to decrypt or encrypt",
+        body:
+            "Enter another image to use it as a key which is required to encode the original image that you want to decrypt or encrypt",
         image: Padding(
           padding: const EdgeInsetsDirectional.only(top: 30),
           child: Image.asset('images/welcom_screen/step2.png'),
@@ -35,7 +38,8 @@ class WelcomPage extends StatelessWidget {
       ),
       PageViewModel(
           title: "Ready To Use",
-          body: "Now the image is eather encrypted or decrpted upon your choice. Don't forgot you must have your key image!",
+          body:
+              "Now the image is eather encrypted or decrpted upon your choice. Don't forgot you must have your key image!",
           image: Padding(
             padding: const EdgeInsetsDirectional.only(top: 30),
             child: Image.asset('images/welcom_screen/step3.png'),
@@ -71,7 +75,6 @@ class WelcomPage extends StatelessWidget {
       onSkip: () => goToHome(context),
       pages: getPages(),
       globalBackgroundColor: Color(0xffE7ECF5),
-       //globalBackgroundColor: Color(0xffA9DBEE),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),

@@ -147,14 +147,14 @@ class ImagesProvider extends ChangeNotifier {
     return isLoading;
   }
 
-  // Future<void> run(context) async {
-  //   await Navigator.of(context).push(MaterialPageRoute(builder: (context) => ViewImage())); // path = null
-  // }
-
-  Future<String> runAfter(String getImagePlainPath_new, String getImageKeyPath_new) async {
-    imgl.Image img = await EncryptDecrypt(getImagePlainPath_new, getImageKeyPath_new);
+  Future<String> runAfter(
+      String getImagePlainPath_new, String getImageKeyPath_new) async {
+    imgl.Image img =
+        await EncryptDecrypt(getImagePlainPath_new, getImageKeyPath_new);
     Directory dir = await getApplicationDocumentsDirectory();
-    File file = await File(dir.path + "/B9mah_Encrypt${Random().nextInt(1000)}.png").create();
+    File file =
+        await File(dir.path + "/B9mah_Encrypt${Random().nextInt(1000)}.png")
+            .create();
     await file.writeAsBytes(imgl.encodePng(img));
     print(file.path);
     return file.path;

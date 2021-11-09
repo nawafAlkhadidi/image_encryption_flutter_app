@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:image/image.dart' as imgl;
 
 Future<imgl.Image> EncryptDecrypt(
+  
     String imagePlainPath, String imageKeyPath) async {
   /// image decode
-  imgl.Image imagePlain =
-      imgl.decodeImage(File(imagePlainPath).readAsBytesSync());
+  imgl.Image imagePlain = imgl.decodeImage(File(imagePlainPath).readAsBytesSync());
   imgl.Image imageKey = imgl.decodeImage(File(imageKeyPath).readAsBytesSync());
 
   /// STEP one -  XOR algorithm ecrypt bassed on the key image -  more faster and secure

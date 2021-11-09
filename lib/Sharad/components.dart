@@ -8,9 +8,8 @@ Widget mainButton({
   @required Color backGround,
   double textSize = 27,
   Color textColors = Colors.white,
-
-//  = Colors(0xff9274EB);
-}) => Padding(
+}) =>
+    Padding(
       padding: const EdgeInsets.symmetric(vertical: 35),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(27),
@@ -27,7 +26,9 @@ Widget mainButton({
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.all(16.0),
                 primary: textColors,
-                textStyle: TextStyle(fontSize: textSize,),
+                textStyle: TextStyle(
+                  fontSize: textSize,
+                ),
               ),
               onPressed: fun,
               child: Padding(
@@ -48,9 +49,9 @@ Widget infoButton({
   @required Function Fun,
   @required String Title,
   @required String SubTitle,
-  @required Icon icon ,
-
-}) => GestureDetector(
+  @required Icon icon,
+}) =>
+    GestureDetector(
       onTap: Fun,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -91,8 +92,12 @@ Widget infoButton({
                       padding: const EdgeInsetsDirectional.only(start: 3),
                       child: Text(
                         SubTitle,
-                        style: TextStyle(fontSize: 13,
-                        color: BlackColor.withOpacity(0.6,),),
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: BlackColor.withOpacity(
+                            0.6,
+                          ),
+                        ),
                       ),
                     ),
                   ],

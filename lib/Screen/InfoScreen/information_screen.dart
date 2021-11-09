@@ -104,8 +104,8 @@ class InformationScreen extends StatelessWidget {
                       color: Color(0xff003366),
                     ),
                     Fun: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => privacySrceen()));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => privacySrceen()));
                     },
                   ),
 

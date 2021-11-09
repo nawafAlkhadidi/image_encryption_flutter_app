@@ -23,7 +23,9 @@ class EncryptScreen extends StatelessWidget {
 
     void BottomSheet(int num) => showModalBottomSheet(
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         context: context,
         builder: (context) => Container(
               child: Column(
@@ -39,8 +41,16 @@ class EncryptScreen extends StatelessWidget {
                           color: BlackColor,
                         )),
                     onTap: () => {
-                      if (num == 0) {Navigator.pop(context), PRO.pickImage('plain', ImageSource.camera)},
-                      if (num == 1) {Navigator.pop(context), PRO.pickImage('key', ImageSource.camera)}
+                      if (num == 0)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('plain', ImageSource.camera)
+                        },
+                      if (num == 1)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('key', ImageSource.camera)
+                        }
                     },
                   ),
                   Padding(
@@ -60,8 +70,16 @@ class EncryptScreen extends StatelessWidget {
                           color: BlackColor,
                         )),
                     onTap: () => {
-                      if (num == 0) {Navigator.pop(context), PRO.pickImage('plain', ImageSource.gallery)},
-                      if (num == 1) {Navigator.pop(context), PRO.pickImage('key', ImageSource.gallery)}
+                      if (num == 0)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('plain', ImageSource.gallery)
+                        },
+                      if (num == 1)
+                        {
+                          Navigator.pop(context),
+                          PRO.pickImage('key', ImageSource.gallery)
+                        }
                     },
                   ),
                   Padding(
@@ -137,7 +155,8 @@ class EncryptScreen extends StatelessWidget {
                             BottomSheet(0);
                           },
                           child: PRO.isImagePlainPicked
-                              ? Image.file(File(PRO.getImagePlainPath), height: 240, width: 240, fit: BoxFit.contain)
+                              ? Image.file(File(PRO.getImagePlainPath),
+                                  height: 240, width: 240, fit: BoxFit.contain)
                               : Icon(
                                   Icons.camera_alt,
                                   size: 65,
@@ -169,7 +188,8 @@ class EncryptScreen extends StatelessWidget {
                           BottomSheet(1),
                         },
                         child: PRO.isImageKeyPicked
-                            ? Image.file(File(PRO.getImageKeyPath), height: 240, width: 240, fit: BoxFit.contain)
+                            ? Image.file(File(PRO.getImageKeyPath),
+                                height: 240, width: 240, fit: BoxFit.contain)
                             : Icon(
                                 Icons.camera_alt,
                                 size: 65,
@@ -190,15 +210,18 @@ class EncryptScreen extends StatelessWidget {
                         ),
                         fun: () {
                           PRO.isImageKeyLargerThanPlain()
-                              ? run ()
+                              ? run()
                               : StatusAlert.show(
                                   context,
                                   duration: Duration(seconds: 5),
                                   title: 'Wrong',
-                                  subtitle: 'Image key must be larger than Image plain',
-                                  configuration: IconConfiguration(icon: Icons.error),
+                                  subtitle:
+                                      'Image key must be larger than Image plain',
+                                  configuration:
+                                      IconConfiguration(icon: Icons.error),
                                   backgroundColor: WhiteColor,
-                                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 10),
                                   dismissOnBackgroundTap: true,
                                 );
                         },

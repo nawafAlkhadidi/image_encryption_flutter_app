@@ -7,7 +7,3 @@ const DecryptButtonColor =  Color(0xffec799b);
 const AboutButtonColor = Color(0xfff7d367);
 const BlackColor = Colors.black;
 const WhiteColor = Colors.white;
-// const background = Colors.white;
-// const background = Colors.white;
-// const background = Colors.white;
-
