@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
-import 'Screen/MainScreen/welcom_screen.dart';
+import 'package:image_encryption/Screen/WelcomScreen/welcom_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
 import 'package:provider/provider.dart';
@@ -11,18 +11,16 @@ var providersList = [
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String initScreen = await prefs.getString("0"); // null
 
-  print('initScreen ${initScreen}');
-  runApp(MyApp(
-    initScreen: initScreen,
-  ));
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  var initScreen = prefs.getBool("initScreen");
+  // initScreen = prefs.getString("initScreen");
+  print(initScreen);
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   final initScreen;
-
   const MyApp({Key key, @required this.initScreen}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class MyApp extends StatelessWidget {
         providers: providersList,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: initScreen != "true" || initScreen == null
+          initialRoute: initScreen == false || initScreen == null
               ? "/welcomePage"
               : "/homePage",
           routes: {

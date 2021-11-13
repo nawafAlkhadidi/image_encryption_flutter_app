@@ -11,8 +11,10 @@ class AdaptiveIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (this.os == 'Android') return CircularProgressIndicator();
+    print(this.os);
+    if (this.os == 'android')
+      return CircularProgressIndicator();
     else
-    return CupertinoActivityIndicator();
+      return CupertinoActivityIndicator();
   }
 }

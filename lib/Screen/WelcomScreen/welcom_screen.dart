@@ -4,7 +4,13 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomPage extends StatelessWidget {
-  
+  savePref(var numPag ) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("initScreen", numPag);
+    prefs.setBool("initScreen" , true);
+    print(prefs.getBool("initScreen"));
+  }
+
   static const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: TextStyle(
@@ -27,7 +33,7 @@ class WelcomPage extends StatelessWidget {
         decoration: pageDecoration,
       ),
       PageViewModel(
-        title: "ِEnter The Key Image",
+        title: "Enter The Key Image",
         body:
             "Enter another image to use it as a key which is required to encode the original image that you want to decrypt or encrypt",
         image: Padding(
@@ -87,11 +93,7 @@ class WelcomPage extends StatelessWidget {
   }
 
   void goToHome(context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    var isSet = await prefs.setString("1", "true");
-    if (isSet) {
-      print("initScreen set to true");
-    }
+    savePref('1');
     await Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => HomePage()),
     );
