@@ -21,81 +21,6 @@ class EncryptScreen extends StatelessWidget {
               )));
     }
 
-    void BottomSheet(int num) => showModalBottomSheet(
-        isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-        context: context,
-        builder: (context) => Container(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(
-                      Icons.camera_alt_outlined,
-                      color: BlackColor,
-                    ),
-                    title: Text('From the camera',
-                        style: TextStyle(
-                          color: BlackColor,
-                        )),
-                    onTap: () => {
-                      if (num == 0)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('plain', ImageSource.camera)
-                        },
-                      if (num == 1)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('key', ImageSource.camera)
-                        }
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      height: 0.5,
-                      color: BlackColor.withOpacity(0.2),
-                    ),
-                  ),
-                  ListTile(
-                    leading: Icon(
-                      Icons.photo_library,
-                      color: BlackColor,
-                    ),
-                    title: Text('From the Photo albums',
-                        style: TextStyle(
-                          color: BlackColor,
-                        )),
-                    onTap: () => {
-                      if (num == 0)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('plain', ImageSource.gallery)
-                        },
-                      if (num == 1)
-                        {
-                          Navigator.pop(context),
-                          PRO.pickImage('key', ImageSource.gallery)
-                        }
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      height: 0.5,
-                      color: BlackColor.withOpacity(0.2),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                ],
-              ),
-            ));
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -152,7 +77,7 @@ class EncryptScreen extends StatelessWidget {
                       children: [
                         TextButton(
                           onPressed: () {
-                            BottomSheet(0);
+                            PRO.pickImage('plain', ImageSource.gallery);
                           },
                           child: PRO.isImagePlainPicked
                               ? Image.file(File(PRO.getImagePlainPath),
@@ -185,7 +110,7 @@ class EncryptScreen extends StatelessWidget {
                     children: [
                       TextButton(
                         onPressed: () => {
-                          BottomSheet(1),
+                         PRO.pickImage('key', ImageSource.gallery),
                         },
                         child: PRO.isImageKeyPicked
                             ? Image.file(File(PRO.getImageKeyPath),

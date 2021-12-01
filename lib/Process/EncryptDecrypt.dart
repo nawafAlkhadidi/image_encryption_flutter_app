@@ -9,8 +9,8 @@ Future<imgl.Image> EncryptDecrypt(
   imgl.Image imagePlain = imgl.decodeImage(File(imagePlainPath).readAsBytesSync());
   imgl.Image imageKey = imgl.decodeImage(File(imageKeyPath).readAsBytesSync());
 
-  /// STEP one -  XOR algorithm ecrypt bassed on the key image -  more faster and secure
 
+  /// STEP one -  XOR algorithm ecrypt bassed on the key image -  more faster and secure
   ///  map - DNA
   for (var i = 0; i < imageKey.length; i++) {
     // shuffle > non-random
@@ -18,8 +18,6 @@ Future<imgl.Image> EncryptDecrypt(
     int xshift = (i * 255) % imageKey.length;
     imageKey[shift] = imageKey[shift] ^ imageKey[xshift];
   }
-  
-
   /// encrypt
   for (int i = 0; i < imagePlain.length; i++) {
     imagePlain[i] = imagePlain[i] ^ imageKey[i] * imageKey.length;

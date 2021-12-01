@@ -4,13 +4,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WelcomPage extends StatelessWidget {
-  savePref(var numPag ) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("initScreen", numPag);
-    prefs.setBool("initScreen" , true);
-    print(prefs.getBool("initScreen"));
-  }
-
+  
   static const pageDecoration = const PageDecoration(
       titleTextStyle: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w700),
       bodyTextStyle: TextStyle(
@@ -93,7 +87,10 @@ class WelcomPage extends StatelessWidget {
   }
 
   void goToHome(context) async {
-    savePref('1');
+     int isViewed = 0;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('onBoard', isViewed);
+    print(prefs.getInt('onBoard'));
     await Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (_) => HomePage()),
     );

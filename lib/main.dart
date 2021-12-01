@@ -8,29 +8,24 @@ import 'package:provider/provider.dart';
 var providersList = [
   ChangeNotifierProvider(create: (context) => ImagesProvider()),
 ];
-
+int isviewed;
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
+  
+   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  var initScreen = prefs.getBool("initScreen");
-  // initScreen = prefs.getString("initScreen");
-  print(initScreen);
+  isviewed = prefs.getInt('onBoard');
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final initScreen;
-  const MyApp({Key key, @required this.initScreen}) : super(key: key);
+ 
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
         providers: providersList,
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
-          initialRoute: initScreen == false || initScreen == null
-              ? "/welcomePage"
-              : "/homePage",
+          initialRoute: isviewed != 0 ? "/welcomePage" : "/homePage",
           routes: {
             '/welcomePage': (context) => WelcomPage(),
             "/homePage": (context) => HomePage(),
