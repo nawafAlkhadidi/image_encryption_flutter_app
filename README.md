@@ -6,7 +6,7 @@ In this project we have proposed a new algorithm for images Encryption with high
 
 <p align="center">
     <a href="">
-        <img src="./example/poster.png" height="700px">
+        <img src="./example/poster.png" height="400px">
     </a>
 </p>
 
