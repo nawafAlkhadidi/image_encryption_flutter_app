@@ -11,6 +11,5 @@ In this project we have proposed a new algorithm for images Encryption with high
 </p>
 
 
-Graduation Project - King Abdulaziz University - College of Computing and Information Technology in Rabigh - 2021-2022
-
+Senior project - King Abdulaziz University - College of Computing and Information Technology in Rabigh - 2021-2022
 
