@@ -35,7 +35,6 @@ class _ViewImageState extends State<ViewImage> {
       tPath = p;
     });
   }
-
   @override
   void initState() {
     doAction();

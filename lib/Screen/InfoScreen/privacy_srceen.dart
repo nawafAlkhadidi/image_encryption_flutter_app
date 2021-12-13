@@ -7,7 +7,7 @@ class privacySrceen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'B9MAH',
+          'Privacy Policy',
           style: TextStyle(
             color: BlackColor,
             fontSize: 25,
