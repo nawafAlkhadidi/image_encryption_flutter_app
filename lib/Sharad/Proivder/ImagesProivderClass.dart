@@ -16,8 +16,9 @@ class ImagesProvider extends ChangeNotifier {
   String imageKeyPath = 'null';
   int imageKeySize = 0;
   String tempPath = 'null';
-
   bool isLoading = false;
+
+  
 
   // picks
   final ImagePicker _picker = ImagePicker(); //lib pack

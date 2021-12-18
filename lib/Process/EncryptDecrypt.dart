@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'dart:io';
 import 'package:image/image.dart' as imgl;
 
@@ -10,20 +10,24 @@ Future<imgl.Image> EncryptDecrypt(
   imgl.Image imageKey = imgl.decodeImage(File(imageKeyPath).readAsBytesSync());
 
 
-  /// STEP one -  XOR algorithm ecrypt bassed on the key image -  more faster and secure
-  ///  map - DNA
+  /// STEP one -  XOR algorithm ecrypt bassed on the key image -  
+  ///  map and OR
   for (var i = 0; i < imageKey.length; i++) {
-    // shuffle > non-random
+
     int shift = (i + 1) % imageKey.length;
     int xshift = (i * 255) % imageKey.length;
     imageKey[shift] = imageKey[shift] ^ imageKey[xshift];
   }
   /// encrypt
+  /// 
+  /// 
   for (int i = 0; i < imagePlain.length; i++) {
     imagePlain[i] = imagePlain[i] ^ imageKey[i] * imageKey.length;
+
+
   }
 
-  /// STEP two
+
   List<List<ColorRGBA>> colorGridPalin =
       getRGP(imagePlain); // store image RGB into colorGridPalin
   List<List<ColorRGBA>> colorGridKey =
