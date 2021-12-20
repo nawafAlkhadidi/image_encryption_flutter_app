@@ -67,9 +67,6 @@ class privacySrceen extends StatelessWidget {
                       children: [
                         Text(
                           AppLocalizations.of(context).translate('Privacy_policy_text1'),
-                            // '   Our privacy policy will help you understand what information we collect at app B9mah '
-                            // 'how B9mah uses it, and what choices you have. built the B9mah app as a free app.'
-                            // 'This SERVICE is provided by B9mah at no cost and is intended for use as is.',
                             style: TextStyle(
                               fontSize: 18,
                               color: BlackColor,
@@ -80,8 +77,6 @@ class privacySrceen extends StatelessWidget {
                         ),
                         Text(
                           AppLocalizations.of(context).translate('Privacy_policy_text2'),
-                            // '   This app (B9MAH) does not use & does not share any user information'
-                            // ', and any information used in this application, we cannot access it. ',
                             style: TextStyle(
                               fontSize: 18,
                               color: BlackColor,
@@ -92,9 +87,6 @@ class privacySrceen extends StatelessWidget {
                         ),
                         Text(
                           AppLocalizations.of(context).translate('Privacy_policy_text3'),
-                            // '   We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes.'
-                            // 'We will notify you of any changes by posting the new Privacy Policy on this page.'
-                            // 'These changes are effective immediately, after they are posted on this page.',
                             style: TextStyle(
                               fontSize: 18,
                               color: BlackColor,
