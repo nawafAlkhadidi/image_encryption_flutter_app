@@ -4,6 +4,7 @@ import 'package:image_encryption/Sharad/Colors.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
 import 'package:image_encryption/Screen/MainScreen/home_screen.dart';
 import 'package:image_encryption/Sharad/adaptive_indicator.dart';
+import 'package:image_encryption/Sharad/applocal.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_saver/gallery_saver.dart';
@@ -49,8 +50,8 @@ class _ViewImageState extends State<ViewImage> {
       StatusAlert.show(
         context,
         duration: Duration(seconds: 4),
-        title: 'Saved',
-        subtitle: 'The image has been saved successfully',
+        title:  AppLocalizations.of(context).translate('Save'),
+        subtitle:  AppLocalizations.of(context).translate('StatusAlert_Save_text'),
         configuration: IconConfiguration(icon: Icons.done),
         backgroundColor: WhiteColor,
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -65,7 +66,7 @@ class _ViewImageState extends State<ViewImage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'B9MAH',
+           AppLocalizations.of(context).translate('B9MAH'),
           style: TextStyle(
             color: BlackColor,
             fontSize: 24,
@@ -104,7 +105,7 @@ class _ViewImageState extends State<ViewImage> {
                   height: 30,
                 ),
                 Text(
-                  'Encrypted Image',
+                   AppLocalizations.of(context).translate('Encrypted_Image'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: BlackColor,
@@ -134,7 +135,7 @@ class _ViewImageState extends State<ViewImage> {
                         ),
                       ),
                 mainButton(
-                    text: 'Save',
+                    text: AppLocalizations.of(context).translate('Save'),
                     textSize: 25,
                     textColors: WhiteColor,
                     icon: Icon(

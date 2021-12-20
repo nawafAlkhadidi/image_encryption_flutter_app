@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_encryption/Screen/ViewScreen/ViewImage.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
+import 'package:image_encryption/Sharad/applocal.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
@@ -22,7 +23,7 @@ class DecryptScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'DECRYPT',
+          AppLocalizations.of(context).translate('DECRYPT_ap'),
           style: TextStyle(
             color: BlackColor,
             fontSize: 24,
@@ -61,7 +62,7 @@ class DecryptScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Encrypted Image',
+                  AppLocalizations.of(context).translate('Encrypted_Image'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: BlackColor,
@@ -97,7 +98,7 @@ class DecryptScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Key Image',
+                  AppLocalizations.of(context).translate('Key_Image'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: BlackColor,
@@ -134,7 +135,7 @@ class DecryptScreen extends StatelessWidget {
                       ? mainButton(
                           backGround: DecryptButtonColor.withOpacity(1),
                           fun: run,
-                          text: 'Decrypt',
+                          text: AppLocalizations.of(context).translate('Decrypt'),
                           textSize: 27.5,
                           icon: Icon(
                             Icons.lock_open,

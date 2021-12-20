@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_encryption/Screen/ViewScreen/ViewImage.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
+import 'package:image_encryption/Sharad/applocal.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_encryption/Sharad/Proivder/ImagesProivderClass.dart';
@@ -24,7 +25,7 @@ class EncryptScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'ENCRYPT',
+          AppLocalizations.of(context).translate('ENCRYPT_ap'),
           style: TextStyle(
             color: BlackColor,
             fontSize: 24,
@@ -61,7 +62,7 @@ class EncryptScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 10),
                 Text(
-                  'Plain Image',
+                  AppLocalizations.of(context).translate('Plain_Image'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: BlackColor,
@@ -94,7 +95,7 @@ class EncryptScreen extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Key Image',
+                  AppLocalizations.of(context).translate('Key_Image'),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: BlackColor,
@@ -127,7 +128,7 @@ class EncryptScreen extends StatelessWidget {
                 PRO.isImageKeyPicked && PRO.isImagePlainPicked
                     ? mainButton(
                         backGround: EncryptButtonColor,
-                        text: 'Encrypt',
+                        text: AppLocalizations.of(context).translate('Encrypt1'),
                         icon: Icon(
                           Icons.lock,
                           color: WhiteColor,
@@ -139,9 +140,9 @@ class EncryptScreen extends StatelessWidget {
                               : StatusAlert.show(
                                   context,
                                   duration: Duration(seconds: 5),
-                                  title: 'Wrong',
+                                  title: AppLocalizations.of(context).translate('StatusAlert_title'),
                                   subtitle:
-                                      'Image key must be larger than Image plain',
+                                      AppLocalizations.of(context).translate('StatusAlert_text'),
                                   configuration:
                                       IconConfiguration(icon: Icons.error),
                                   backgroundColor: WhiteColor,

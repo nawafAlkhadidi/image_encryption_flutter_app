@@ -4,6 +4,7 @@ import 'package:flutter/painting.dart';
 import 'package:image_encryption/Screen/InfoScreen/MoreInfoScreen.dart';
 import 'package:image_encryption/Screen/InfoScreen/privacy_srceen.dart';
 import 'package:image_encryption/Sharad/Colors.dart';
+import 'package:image_encryption/Sharad/applocal.dart';
 import 'package:image_encryption/Sharad/components.dart';
 import 'package:image_encryption/Sharad/GetEmail.dart';
 
@@ -20,7 +21,7 @@ class InformationScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            'About Us',
+            AppLocalizations.of(context).translate('About_us'),
             style: TextStyle(
               color: BlackColor,
               fontSize: 25,
@@ -67,8 +68,8 @@ class InformationScreen extends StatelessWidget {
 
                   ///MoreInfo Button 1
                   infoButton(
-                    Title: "More information",
-                    SubTitle: "More information about this app",
+                    Title: AppLocalizations.of(context).translate('More_information'),
+                    SubTitle: AppLocalizations.of(context).translate('information_SubTitle'),
                     icon: Icon(
                       Icons.info,
                       size: 38,
@@ -82,8 +83,8 @@ class InformationScreen extends StatelessWidget {
 
                   ///Contact Button 2
                   infoButton(
-                    Title: "Contact the developer",
-                    SubTitle: "Contact me directly through email",
+                    Title: AppLocalizations.of(context).translate('Contact_the_developer'),
+                    SubTitle: AppLocalizations.of(context).translate('Contact_SubTitle'),
                     icon: Icon(
                       Icons.email,
                       size: 38,
@@ -96,8 +97,8 @@ class InformationScreen extends StatelessWidget {
 
                   ///Acknowledge Button 3
                   infoButton(
-                    Title: "Privacy policy",
-                    SubTitle: "Privacy policy about in this app",
+                    Title: AppLocalizations.of(context).translate('Privacy_policy'),
+                    SubTitle: AppLocalizations.of(context).translate('Privacy_policy_SubTitle'),
                     icon: Icon(
                       Icons.privacy_tip,
                       size: 38,
@@ -112,8 +113,7 @@ class InformationScreen extends StatelessWidget {
                   ///TextVersio
                   Padding(
                     padding: const EdgeInsetsDirectional.only(top: 40),
-                    child: Text(
-                      "Version 1.0",
+                    child: Text(AppLocalizations.of(context).translate('Version_1.0'),
                       style: TextStyle(
                         fontSize: 27,
                         fontWeight: FontWeight.bold,
@@ -128,7 +128,7 @@ class InformationScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "© 2021 Nawaf Alkhadidi | Yasser Bamogabel",
+                          AppLocalizations.of(context).translate('©_2021_Nawaf_Alkhadidi_|_Yasser_Bamogabel'),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
