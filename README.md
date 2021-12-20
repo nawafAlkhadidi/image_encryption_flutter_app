@@ -5,15 +5,15 @@
     </a>
 </p>
 
-# image_encryption (B9mah)
+# image_encryption (B9mah) :
 
 In this project we have proposed a new algorithm for images Encryption with high efficiency compared to previous algorithms. In this project we have developed a mobile-based application for smart devices that will be used for easily encrypting the images send over unsecure channels. This application will allows us preserve one of the most important data, which is the images by encrypting them using the proposed encryption algorithm. This algorithm is Achieving a high level of security and it uses the shortest time of encryption.
 
-# The Result
+# The Result:
 
 <p align="center">
     <a href="">
-        <img src="./example/Results.png" height="400px">
+        <img src="./example/Result.png" height="400px">
     </a>
 </p>
 
