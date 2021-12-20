@@ -13,14 +13,16 @@ Senior project - King Abdulaziz University - Faculty of Computing & Information 
 
 # Encryption Scheme : 
 
-algorithm implement two-step of encryption: 1-Confusion. 2- Diffusion.
-
 
 <p align="center">
     <a href="">
         <img src="./example/EncryptionScheme.png" height="400px">
     </a>
 </p>
+
+
+algorithm implement two-step of encryption: 1-Confusion. 2- Diffusion:
+
 
 1- in confusion phase is to distract the high relationship between the pixel's units. Most of the confusion stages plan to permute the picture by changing the pixel positions without altering pixel values, so the histograms of the encrypted image and the plain image are identical. They are unreliable , Since the histogram is a measure of an image's essential characteristics, the attacker may use it to approximate the original image's content. In addition to, these methods restricted to image size specification and need multiple iterations. 
 
