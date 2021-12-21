@@ -12,35 +12,41 @@ Widget mainButton({
     Padding(
       padding: const EdgeInsets.symmetric(vertical: 35),
       child: ClipRRect(
+
         borderRadius: BorderRadius.circular(27),
-        child: Stack(
-          children: <Widget>[
-            Positioned.fill(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: backGround,
+        child: Container(
+          width: 200,
+          child: Stack(
+            children: <Widget>[
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: backGround,
+                  ),
                 ),
               ),
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(16.0),
-                primary: textColors,
-                textStyle: TextStyle(
-                  fontSize: textSize,
+              Center(
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.all(20.0),
+                    primary: textColors,
+                    textStyle: TextStyle(
+                      fontSize: textSize,
+                    ),
+                  ),
+                  onPressed: fun,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(start: 40),
+                    child: Text(
+                      text,
+                      style: TextStyle(color: textColors),
+                    ),
+                  ),
                 ),
               ),
-              onPressed: fun,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(start: 40),
-                child: Text(
-                  text,
-                  style: TextStyle(color: textColors),
-                ),
-              ),
-            ),
-            Padding(padding: const EdgeInsets.all(12.0), child: icon),
-          ],
+              Padding(padding: const EdgeInsets.all(20.0), child: icon),
+            ],
+          ),
         ),
       ),
     );
